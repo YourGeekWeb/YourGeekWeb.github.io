@@ -1,37 +1,50 @@
-## Welcome to GitHub Pages
+<html>
 
-You can use the [editor on GitHub](https://github.com/YourGeekWeb/YourGeekWeb.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+<script>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+function embeberyt(){
 
-### Markdown
+var video1 = document.getElementById("video").value;
+var largo = video1.length;
+var comienzo = video1.indexOf("v=");
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+var video2 = video1.slice(comienzo+2,largo);
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+var lista = video1.indexOf("&list");
+if(lista!=-1){
 
-- Bulleted
-- List
+  var comienzo = video1.indexOf("v=");
+  var final = video1.indexOf("&list");
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+  var video2 = video1.slice(comienzo+2,final);
 
-[Link](url) and ![Image](src)
-```
+}
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+var videomolde = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'+video2+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/YourGeekWeb/YourGeekWeb.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+document.getElementById("videoservido").innerHTML = videomolde;
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+}
+
+</script>
+</head>
+
+
+<body>
+
+
+
+<button onclick="embeberyt()">Go</button>
+<input value="url" id="video">
+
+<div id="videoservido">Tu video</div>
+
+
+</body>
+
+</html>
